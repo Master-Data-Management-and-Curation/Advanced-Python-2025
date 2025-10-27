@@ -1,16 +1,14 @@
-import random
-
-
-
+import random as rd
 # This is a Data Class, the attributes are the most important things, as data retainer,
 # User Class (and other data classes, if added), represent the data "Model" of the system.
 
 class User:    
     def __init__(self, full_name, age, role):
         self.full_name, self.age, self.role = full_name, age, role
-        # This put everything in lowercase, then substitute the spaces with _ and add age and random number
+        # This put everything in lowercase, then substitute the spaces with _ 
+        # and add age and random number
         # Beware: It doesn't do anything for any other special characters like ' or , or .!
-        self.user_id = f"{full_name.lower().replace(' ', '_')}_{age}_{random.randint(0000,9999)}"
+        self.user_id = f"{full_name.lower().replace(' ', '_')}_{age}_{rd.randint(0000,9999)}"
         self.password_hash = None
     def set_hash_password(self, password):
         self.password_hash = hash(password)
@@ -55,14 +53,13 @@ class MainView:
             return True
 
 # Encapsulating the main function!
-class Main:
-    def __call__():
-        mainView = MainView()
-        while True:
-            # when the function return False, exit
-            if not mainView(): # __call__ in action
-                break
+def main():
+    mainView = MainView()
+    while True:
+        # when the function return False, exit
+        if not mainView(): # __call__ in action
+            raise ValueError
 
 # This is a really useful way to avoid module interaction while we operate outside functions or classes
 if __name__ == "__main__":
-    Main()() # __init__ and then __call__ (this is questionable!)
+    main()

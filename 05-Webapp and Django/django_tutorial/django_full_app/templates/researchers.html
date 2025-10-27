@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+</head>
+<body>
+    <h1>Add a Person</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>People:</h2>
+    <ul>
+        {% for researcher in researchers %}
+            <li>{{ researcher.name }}</li>
+        {% empty %}
+            <li>No people added yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
