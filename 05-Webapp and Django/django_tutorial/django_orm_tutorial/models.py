@@ -7,7 +7,7 @@ class ImageMetadata(models.Model):
     width = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.path
+        return f"{self.path} + {self.height}"
 
 class InstrumentMetadata(models.Model):
     device_id = models.CharField(primary_key=True)

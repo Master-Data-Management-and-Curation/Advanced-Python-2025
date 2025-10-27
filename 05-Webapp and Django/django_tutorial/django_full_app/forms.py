@@ -4,4 +4,4 @@ from .models import Researcher
 class ResearcherForm(forms.ModelForm):
     class Meta:
         model = Researcher
-        fields = ['name', 'age', 'role']
+        exclude = ['role']

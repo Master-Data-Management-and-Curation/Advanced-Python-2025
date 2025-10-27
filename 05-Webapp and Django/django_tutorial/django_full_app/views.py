@@ -11,7 +11,7 @@ def researcher_view(request):
             form.save()
             return redirect('researcher_view')
     else:
-        form = Researcher()
+        form = ResearcherForm(request.GET)
 
     # if request.method == 'GET' <- note this is not needed as we implied it (but only for a normal usage)
 
